@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: slavik1987/webapp:0.0.1
+        ports:
+        - containerPort: 8000
+        resources:
+          requests:
+            cpu: 200m
+            memory: 300Mi
+          limits:
+            memory: 400Mi
+      - name: webapp-tests-positive
+        image: slavik1987/webapp_ui_tests:0.0.1
+        command: [ "sleep" ]
+        args: [ "infinity" ]
+      - name: webapp-tests-negative
+        image: slavik1987/webapp_ui_tests-negative:0.0.1
+        command: [ "sleep" ]
+        args: [ "infinity" ]

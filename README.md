@@ -36,16 +36,17 @@
 6. kubectl get pods [-w,]
 7. kubectl get nodes
 8. kubectl port-forward deployment/webapp 8000:8000
-9. kubectl describe pod <id>
+9. kubectl describe pod webapp-ffdcc87bf-b7v2n
 10. kubectl delete deployment webapp
 11. kubectl delete service webapp
 12. kubectl delete pod <id>
 13. kubectl run <new_pod_name> --image=slavik1987/webapp_ui_tests:0.0.1
 14. kubectl rollout restart deployment
-15. kubectl top pod [node,]
-16. kubectl get pods webapp-7d58b7b7b6-j9t27 -o jsonpath='{.spec.containers[*].name}' -> containers list
-17. kubectl exec -it webapp-7d58b7b7b6-j9t27 -c webapp-tests-positive -- /bin/bash -c "pytest"
-18. kubectl logs -f deployment/webapp -p webapp-7d58b7b7b6-j9t27 -c webapp-tests-positive
+15. kubectl top pod [pods, nods]
+16. kubectl get pods webapp-5f67cbcbd6-pjhbm -o jsonpath='{.spec.containers[*].name}' -> containers list
+17. kubectl exec -it webapp-66bb95998-lhdtr  -c webapp-tests-positive -- /bin/bash -c "pytest"
+18. kubectl logs -f deployment/webapp -p webapp-66bb95998-lhdtr -c webapp-tests-positive
+19. kubectl get ing
 
 
 

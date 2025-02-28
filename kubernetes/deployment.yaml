@@ -27,9 +27,7 @@ spec:
             memory: 400Mi
       - name: webapp-tests-positive
         image: slavik1987/webapp_ui_tests:0.0.1
-        command: [ "sleep" ]
-        args: [ "infinity" ]
+        command: ["tail", "-f", "/dev/null"]
       - name: webapp-tests-negative
         image: slavik1987/webapp_ui_tests-negative:0.0.1
-        command: [ "sleep" ]
-        args: [ "infinity" ]
+        command: ["tail", "-f", "/dev/null"]
